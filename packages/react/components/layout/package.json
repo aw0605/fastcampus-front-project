@@ -1,0 +1,34 @@
+{
+  "name": "@fastcampus/react-components-layout",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "yarn run build:js && yarn run build:type && yarn run build:css",
+    "build:js": "node build.js",
+    "build:type": "yarn tsc --emitDeclarationOnly"
+  },
+  "devDependencies": {
+    "@fastcampus/esbuild-config": "workspace:^",
+    "@fastcampus/themes": "workspace:^",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@vanilla-extract/css": "^1.13.0",
+    "@vanilla-extract/esbuild-plugin": "^2.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.5.4"
+  },
+  "peerDependencies": {
+    "@fastcampus/themes": "workspace:^",
+    "react": "*"
+  }
+}
