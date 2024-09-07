@@ -14,7 +14,8 @@
   "scripts": {
     "build": "yarn run build:js && yarn run build:type && yarn run build:css",
     "build:js": "node build.js",
-    "build:type": "yarn tsc --emitDeclarationOnly"
+    "build:type": "yarn tsc --emitDeclarationOnly",
+    "dev": "yarn build:js --watch && yarn build:type --watch"
   },
   "devDependencies": {
     "@fastcampus/esbuild-config": "workspace:^",
