@@ -1,12 +1,24 @@
 import * as React from "react";
-import { BoxProps } from "./types";
+import { GridItemProps } from "./types";
 import { clsx } from "clsx";
 import { StyleSprinkles } from "../core/style.css";
 import { extractSprinkleProps } from "../utils/properties";
 import { vars } from "@fastcampus/themes";
 
-const Box = (props: BoxProps, ref: React.Ref<HTMLElement>) => {
-  const { as = "div", color, background, children } = props;
+const GridItem = (props: GridItemProps, ref: React.Ref<HTMLElement>) => {
+  const {
+    as = "div",
+    color,
+    background,
+    children,
+    area,
+    colEnd,
+    colStart,
+    colSpan,
+    rowEnd,
+    rowStart,
+    rowSpan,
+  } = props;
 
   return React.createElement(
     as,
@@ -20,6 +32,13 @@ const Box = (props: BoxProps, ref: React.Ref<HTMLElement>) => {
         props.className,
       ]),
       style: {
+        gridArea: area,
+        gridColumnEnd: colEnd,
+        gridColumnStart: colStart,
+        gridColumn: colSpan,
+        gridRowEnd: rowEnd,
+        gridRowStart: rowStart,
+        gridRow: rowSpan,
         color: color && vars.colors.$scale?.[color]?.[700],
         background: background && vars.colors.$scale?.[background]?.[100],
         ...props.style,
@@ -29,6 +48,5 @@ const Box = (props: BoxProps, ref: React.Ref<HTMLElement>) => {
   );
 };
 
-const _Box = React.forwardRef(Box);
-
-export { _Box as Box };
+const _GridItem = React.forwardRef(GridItem);
+export { _GridItem as GridItem };
