@@ -2200,6 +2200,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@fastcampus/react-components-button@workspace:^, @fastcampus/react-components-button@workspace:packages/react/components/button":
+  version: 0.0.0-use.local
+  resolution: "@fastcampus/react-components-button@workspace:packages/react/components/button"
+  dependencies:
+    "@fastcampus/esbuild-config": "workspace:^"
+    "@fastcampus/themes": "workspace:^"
+    "@types/react": "npm:^18.2.21"
+    "@types/react-dom": "npm:^18.2.7"
+    "@vanilla-extract/css": "npm:^1.13.0"
+    "@vanilla-extract/dynamic": "npm:^2.0.3"
+    "@vanilla-extract/esbuild-plugin": "npm:^2.3.0"
+    "@vanilla-extract/recipes": "npm:^0.5.0"
+    "@vanilla-extract/sprinkles": "npm:^1.6.1"
+    clsx: "npm:^2.0.0"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    typescript: "npm:^5.5.4"
+  peerDependencies:
+    "@fastcampus/themes": "workspace:^"
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@fastcampus/react-components-layout@workspace:^, @fastcampus/react-components-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@fastcampus/react-components-layout@workspace:packages/react/components/layout"
@@ -2227,6 +2250,7 @@ __metadata:
   resolution: "@fastcampus/storybook@workspace:services/storybook"
   dependencies:
     "@chromatic-com/storybook": "npm:1.9.0"
+    "@fastcampus/react-components-button": "workspace:^"
     "@fastcampus/react-components-layout": "workspace:^"
     "@fastcampus/themes": "workspace:^"
     "@storybook/addon-essentials": "npm:^7.4.0"
@@ -5273,6 +5297,15 @@ __metadata:
     modern-ahocorasick: "npm:^1.0.0"
     picocolors: "npm:^1.0.0"
   checksum: 10c0/85b8c710b5fbc7ac73494e97be152327ff52a81397ca424622df126cd664638127ba67ada9cddb9a80a57be3f732da382d538a346675e9c497d6b71d60c57555
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/dynamic@npm:^2.0.3":
+  version: 2.1.2
+  resolution: "@vanilla-extract/dynamic@npm:2.1.2"
+  dependencies:
+    "@vanilla-extract/private": "npm:^1.0.6"
+  checksum: 10c0/7361863bbc1260fda447be80e888e3ad5dea09957651288d7aba81ba7f59594d11476a840c9162adc452f9a43dbc379b58621b5b500a49f537b0efc7737aac9c
   languageName: node
   linkType: hard
 
