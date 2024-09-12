@@ -1,5 +1,8 @@
 import "@fastcampus/react-components-button/style.css";
+import "@fastcampus/react-components-layout/style.css";
 import { Button as _Button } from "@fastcampus/react-components-button";
+import { Text } from "@fastcampus/react-components-layout";
+import { useButton } from "@fastcampus/react-hooks-button";
 import { vars } from "@fastcampus/themes";
 
 export default {
@@ -33,5 +36,31 @@ export const ButtonStory = {
     isDisabled: false,
     leftIcon: "😀",
     isLoading: false,
+  },
+};
+
+export const TextButtonStory = {
+  render: () => {
+    const { buttonProps } = useButton({
+      elementType: "div",
+      onClick: () => {
+        console.log("ttt");
+      },
+    });
+
+    return (
+      <Text
+        {...buttonProps}
+        as="div"
+        fontSize="md"
+        color="green"
+        style={{
+          userSelect: "none",
+          cursor: "pointer",
+        }}
+      >
+        텍스트 버튼입니다.
+      </Text>
+    );
   },
 };
