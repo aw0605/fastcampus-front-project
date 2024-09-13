@@ -2,7 +2,7 @@ import { vars } from "@fastcampus/themes";
 import { StyleSprinkles } from "./style.css";
 
 type AsProps = {
-  as?: Exclude<keyof JSX.IntrinsicAttributes, keyof SVGElementTagNameMap>;
+  as?: Exclude<keyof JSX.IntrinsicElements, keyof SVGElementTagNameMap>;
 };
 
 type ElementProps = Omit<React.HTMLAttributes<HTMLElement>, "as">;
