@@ -2433,6 +2433,7 @@ __metadata:
     "@fastcampus/react-hooks-input": "workspace:^"
     "@fastcampus/react-hooks-select": "workspace:^"
     "@fastcampus/themes": "workspace:^"
+    "@storybook/addon-a11y": "npm:^7.4.5"
     "@storybook/addon-essentials": "npm:^7.4.0"
     "@storybook/addon-interactions": "npm:^7.4.0"
     "@storybook/addon-links": "npm:^7.4.0"
@@ -2447,11 +2448,13 @@ __metadata:
     "@testing-library/user-event": "npm:^14.5.1"
     "@vitejs/plugin-react": "npm:^4.1.0"
     "@vitest/ui": "npm:^0.34.6"
+    chromatic: "npm:^11.10.2"
     happy-dom: "npm:^12.5.0"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     storybook: "npm:^7.4.0"
+    storybook-addon-pseudo-states: "npm:^2.1.1"
     storybook-addon-root-attributes: "npm:^2.0.3"
     vite: "npm:^4.4.9"
     vitest: "npm:^0.34.6"
@@ -3729,6 +3732,16 @@ __metadata:
   version: 0.27.8
   resolution: "@sinclair/typebox@npm:0.27.8"
   checksum: 10c0/ef6351ae073c45c2ac89494dbb3e1f87cc60a93ce4cde797b782812b6f97da0d620ae81973f104b43c9b7eaa789ad20ba4f6a1359f1cc62f63729a55a7d22d4e
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-a11y@npm:^7.4.5":
+  version: 7.6.20
+  resolution: "@storybook/addon-a11y@npm:7.6.20"
+  dependencies:
+    "@storybook/addon-highlight": "npm:7.6.20"
+    axe-core: "npm:^4.2.0"
+  checksum: 10c0/f8274d0e8f3c55a53eedb98947615647433444a9b25ca4ab342cef1cf9778b7224500121e381e7b7c74583e4e14bacf9417ebf4c624bd15fec80a2be1eb516f0
   languageName: node
   linkType: hard
 
@@ -6206,7 +6219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.10.0":
+"axe-core@npm:^4.10.0, axe-core@npm:^4.2.0":
   version: 4.10.0
   resolution: "axe-core@npm:4.10.0"
   checksum: 10c0/732c171d48caaace5e784895c4dacb8ca6155e9d98045138ebe3952f78457dd05b92c57d05b41ce2a570aff87dbd0471e8398d2c0f6ebe79617b746c8f658998
@@ -6591,6 +6604,25 @@ __metadata:
   version: 2.0.0
   resolution: "chownr@npm:2.0.0"
   checksum: 10c0/594754e1303672171cc04e50f6c398ae16128eb134a88f801bf5354fd96f205320f23536a045d9abd8b51024a149696e51231565891d4efdab8846021ecf88e6
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^11.10.2":
+  version: 11.10.2
+  resolution: "chromatic@npm:11.10.2"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: 10c0/167633dc1d3d0309af4524e7603a887d3481bc6005a2c0cb955d9ca0e17223bd0335a01844835fe34f1823df308032d6b238bced644a755a3f7c265728ac5e41
   languageName: node
   linkType: hard
 
@@ -12774,6 +12806,26 @@ __metadata:
   version: 2.14.3
   resolution: "store2@npm:2.14.3"
   checksum: 10c0/22e1096e6d69590672ca0b7f891d82b060837ef4c3e5df0d4563e6cbed14c52ddf2589fa94b79f4311b6ec41d95d6142e5d01d194539e0175c3fb4090cca8244
+  languageName: node
+  linkType: hard
+
+"storybook-addon-pseudo-states@npm:^2.1.1":
+  version: 2.2.1
+  resolution: "storybook-addon-pseudo-states@npm:2.2.1"
+  peerDependencies:
+    "@storybook/components": ^7.4.6
+    "@storybook/core-events": ^7.4.6
+    "@storybook/manager-api": ^7.4.6
+    "@storybook/preview-api": ^7.4.6
+    "@storybook/theming": ^7.4.6
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/bf7e81276328ad0e1209f48bba76b8dc009a63fc65d98104b540a5f91be784a95364460e9f16cd351e32ec49282b8f7cf2734c100a3f44ba0ab2345f98ab31d6
   languageName: node
   linkType: hard
 
