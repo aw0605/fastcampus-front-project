@@ -15,3 +15,13 @@
 **/dist/*
 dist
 *storybook.log
+
+# storybook
+**/storybook-static/
+
+# next.js
+**/.next/
+**/out/
+
+# production
+**/build
