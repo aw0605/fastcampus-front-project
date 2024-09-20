@@ -15,7 +15,7 @@ import { vars } from "@fastcampus/themes";
 const Input = (props: InputProps, ref: React.Ref<HTMLInputElement>) => {
   const {
     color = "gray",
-    size = "md",
+    size = "lg",
     variant = "outline",
     errorBorderColor = "#E53E3E",
     focusBorderColor = "#3182CE",
