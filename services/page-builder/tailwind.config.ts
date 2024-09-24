@@ -1,3 +1,4 @@
+import { vars } from "@fastcampus/themes";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -7,12 +8,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
+    colors: vars.colors.$static.light,
   },
   plugins: [],
 };
