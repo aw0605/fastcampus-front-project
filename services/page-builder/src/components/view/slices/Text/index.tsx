@@ -3,6 +3,7 @@ import { vars } from "@fastcampus/themes";
 
 type Props = {
   text: string;
+  highlightTexts?: string[];
   sliceStyle?: {
     padding?: keyof typeof vars.box.spacing;
     paddingX?: keyof typeof vars.box.spacing;
@@ -12,10 +13,16 @@ type Props = {
     textSize?: keyof typeof vars.typography.fontSize;
     textWeight?: keyof typeof vars.typography.fontWeight;
     textAlign?: "left" | "center" | "right";
+    highlightTextColor?: string;
+    highlightTextWeight?: keyof typeof vars.typography.fontWeight;
   };
 };
 
-export const TextSlice: React.FC<Props> = ({ text, sliceStyle }: Props) => {
+export const TextSlice: React.FC<Props> = ({
+  text,
+  highlightTexts = [],
+  sliceStyle,
+}: Props) => {
   const {
     padding = 2,
     paddingX = 2,
@@ -25,7 +32,28 @@ export const TextSlice: React.FC<Props> = ({ text, sliceStyle }: Props) => {
     textSize,
     textWeight,
     textAlign = "center",
+    highlightTextColor = vars.colors.$static.light.yellow[400],
+    highlightTextWeight,
   } = sliceStyle ?? {};
+
+  const regex = new RegExp(`(${highlightTexts.join("|")})`, "gi");
+
+  const highlightedText = text.split(regex).map((word, index) => {
+    if (highlightTexts.some((query) => new RegExp(query, "i").test(word))) {
+      return (
+        <span
+          key={`${word}-${index}`}
+          style={{
+            color: highlightTextColor,
+            fontWeight: highlightTextWeight ?? textWeight,
+          }}
+        >
+          {word}
+        </span>
+      );
+    }
+    return word;
+  });
 
   return (
     <Text
@@ -39,9 +67,11 @@ export const TextSlice: React.FC<Props> = ({ text, sliceStyle }: Props) => {
         fontSize: textSize,
         fontWeight: textWeight,
         textAlign,
+        whiteSpace: "pre-wrap",
+        wordBreak: "keep-all",
       }}
     >
-      {text}
+      {highlightedText}
     </Text>
   );
 };
