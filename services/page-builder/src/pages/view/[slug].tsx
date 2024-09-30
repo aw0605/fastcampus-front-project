@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from "next";
 import { CDN_BASE_URL } from "@/src/constants";
-import { MobileFirstLayout } from "@/src/components/view/MobileFirstLayout";
+import { MobileFirstLayout } from "@/src/components/layout/MobileFirstLayout";
 import { TextSlice } from "@/src/components/view/slices/Text";
 import { SpacingSlice } from "@/src/components/view/slices/Spacing";
 import { ImageSlice } from "@/src/components/view/slices/Image";
