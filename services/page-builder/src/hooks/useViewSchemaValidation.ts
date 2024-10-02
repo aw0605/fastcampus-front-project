@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ViewSchema } from "../utils/validation/schema/view";
 
 type FormatMarker = {
   message: string;
@@ -33,6 +34,18 @@ export const useViewSchemaValidation = () => {
         message: `[L${firstMarker.startLineNumber}:L${firstMarker.endLineNumber}] ${firstMarker.message}`,
       });
     }
+
+    const objectifiedViewSchema = JSON.parse(viewSchema);
+    const validatedViewSchema = ViewSchema.safeParse(objectifiedViewSchema);
+
+    if (!validatedViewSchema.success) {
+      const firstError = validatedViewSchema.error.errors[0];
+
+      return onError?.({
+        message: `[L${firstError.code}:L${firstError.path}] ${firstError.message}`,
+      });
+    }
+
     onSuccess?.();
   };
 

@@ -1,17 +1,8 @@
 import { Box } from "@fastcampus/react-components-layout";
-import { vars } from "@fastcampus/themes";
+import { ImageSliceSchema } from "@/src/utils/validation/schema/slices";
+import { SliceSchemaProps } from "@/src/utils/validation/schema/types";
 
-type Props = {
-  imageUrl: string;
-  alt: string;
-  sliceStyle?: {
-    width?: string;
-    padding?: keyof typeof vars.box.spacing;
-    paddingX?: keyof typeof vars.box.spacing;
-    paddingY?: keyof typeof vars.box.spacing;
-    backgroundColor?: string;
-  };
-};
+type Props = SliceSchemaProps<typeof ImageSliceSchema>;
 
 export const ImageSlice: React.FC<Props> = ({
   imageUrl,
