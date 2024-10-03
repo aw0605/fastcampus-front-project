@@ -12,10 +12,12 @@ import { useViewSchemaValidation } from "@/src/hooks/useViewSchemaValidation";
 import { useToast } from "@fastcampus/react-components-toast";
 import { DesktopFirstSideNav } from "@/src/components/layout/DesktopFirstLayout/SideNav";
 import { JsonPresetList } from "@/src/components/EditorNewPage";
+import { putViewDetail } from "@/src/apis/worker/putViewDetail";
 
 const EditorNewPage: React.FC = () => {
   const { randomUUID } = new ShortUniqueId({ length: 10 });
-  const viewId = randomUUID();
+  const [viewId] = useState(randomUUID());
+  // const viewId = randomUUID();
 
   const { toast } = useToast();
 
@@ -48,6 +50,39 @@ const EditorNewPage: React.FC = () => {
     });
   };
 
+  const handlePublish = () => {
+    validateViewSchema({
+      viewSchema: schema,
+      onSuccess: async () => {
+        try {
+          await putViewDetail({
+            viewId,
+            data: {
+              value: JSON.stringify(schema),
+              metadata: {
+                createAt: new Date().toISOString(),
+              },
+            },
+          });
+        } catch (error) {
+          toast({
+            payload: {
+              // @ts-ignore
+              message: `[Fetch Error] ${error.message}`,
+            },
+          });
+        }
+      },
+      onError: ({ message }) => {
+        toast({
+          payload: {
+            message: message,
+          },
+        });
+      },
+    });
+  };
+
   return (
     <DesktopFirstLayout>
       <DesktopFirstNav gap={8}>
@@ -62,7 +97,7 @@ const EditorNewPage: React.FC = () => {
         >
           미리보기
         </Button>
-        <Button size="md" color="green">
+        <Button size="md" color="green" onClick={handlePublish}>
           배포하기
         </Button>
       </DesktopFirstNav>
