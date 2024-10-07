@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from "next";
-import { MobileFirstLayout } from "@/src/components/layout/MobileFirstLayout";
 import { useViewSchemaSlices } from "@/src/hooks/useViewSchemaSlices";
 import { ViewSchemaProps } from "@/src/utils/validation/schema/types";
 import { getViewDetail } from "@/src/apis/worker/getViewDetail";
+import { MobileFirstLayout } from "@/src/components/Common/Layouts/MobileFirstLayout";
 
 const ViewPage = ({
   jsonSchema,

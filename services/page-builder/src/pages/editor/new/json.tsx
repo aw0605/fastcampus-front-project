@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { JsonEditor } from "@/src/components/Editor/Json";
+import { JsonEditor } from "@/src/components/Common/Editor/Json";
 import { formatObjectToJson } from "@/src/utils/jsonEditor";
 import { ViewSliceSchemaSnippet } from "@/src/utils/jsonEditor/ViewSchemaSnippet";
-import { DesktopFirstLayout } from "@/src/components/layout/DesktopFirstLayout";
-import { DesktopFirstBody } from "@/src/components/layout/DesktopFirstLayout/Body";
-import { DesktopFirstNav } from "@/src/components/layout/DesktopFirstLayout/Nav";
 import { Button } from "@fastcampus/react-components-button";
 import ShortUniqueId from "short-unique-id";
 import { previewStorage } from "@/src/utils/storage";
 import { useViewSchemaValidation } from "@/src/hooks/useViewSchemaValidation";
 import { useToast } from "@fastcampus/react-components-toast";
-import { DesktopFirstSideNav } from "@/src/components/layout/DesktopFirstLayout/SideNav";
-import { JsonPresetList } from "@/src/components/EditorNewPage";
 import { putViewDetail } from "@/src/apis/worker/putViewDetail";
+import { DesktopFirstLayout } from "@/src/components/Common/Layouts/DesktopFirstLayout";
+import { DesktopFirstNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/Nav";
+import { DesktopFirstBody } from "@/src/components/Common/Layouts/DesktopFirstLayout/Body";
+import { DesktopFirstSideNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/SideNav";
+import { JsonPresetList } from "@/src/components/Features/EditorNewPage";
 
-const EditorNewPage: React.FC = () => {
+const EditorNewJsonPage: React.FC = () => {
   const { randomUUID } = new ShortUniqueId({ length: 10 });
   const [viewId] = useState(randomUUID());
 
@@ -124,4 +124,4 @@ const EditorNewPage: React.FC = () => {
     </DesktopFirstLayout>
   );
 };
-export default EditorNewPage;
+export default EditorNewJsonPage;

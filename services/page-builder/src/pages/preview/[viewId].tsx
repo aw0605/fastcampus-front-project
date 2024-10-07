@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
-import { MobileFirstLayout } from "@/src/components/layout/MobileFirstLayout";
+
 import { useEffect, useState } from "react";
 import { ViewSliceSchemaSnippet } from "@/src/utils/jsonEditor/ViewSchemaSnippet";
 import { previewStorage } from "@/src/utils/storage";
 import { useViewSchemaSlices } from "@/src/hooks/useViewSchemaSlices";
+import { MobileFirstLayout } from "@/src/components/Common/Layouts/MobileFirstLayout";
 
 const PreviewPage = () => {
   const router = useRouter();
