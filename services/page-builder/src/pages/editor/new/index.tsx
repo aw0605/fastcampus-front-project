@@ -4,14 +4,22 @@ import { DesktopFirstLayout } from "@/src/components/Common/Layouts/DesktopFirst
 import { DesktopFirstBody } from "@/src/components/Common/Layouts/DesktopFirstLayout/Body";
 import { DesktopFirstNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/Nav";
 import { DesktopFirstSideNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/SideNav";
+import { Spacing } from "@/src/components/Common/Spacing";
 import { Button } from "@fastcampus/react-components-button";
 import { Box, Flex } from "@fastcampus/react-components-layout";
 import { vars } from "@fastcampus/themes";
+import { useForm } from "react-hook-form";
 
 const EditorNewFormPage: React.FC = () => {
+  const { register, handleSubmit } = useForm();
+
   const handleReset = () => {};
-  const handlePreview = () => {};
-  const handlePublish = () => {};
+  const handlePreview = handleSubmit((formData) => {
+    console.log("preview", formData);
+  });
+  const handlePublish = handleSubmit((formData) => {
+    console.log("publish", formData);
+  });
 
   return (
     <DesktopFirstLayout>
@@ -45,9 +53,20 @@ const EditorNewFormPage: React.FC = () => {
             boxShadow="base"
             style={{ background: vars.colors.$static.light.color.white }}
           >
-            <FormFieldSection title="테스트">
-              <InputField isRequired label="테스트" />
-            </FormFieldSection>
+            <form>
+              <FormFieldSection title="common">
+                <InputField isRequired label="slug" {...register("slug")} />
+              </FormFieldSection>
+              <Spacing />
+              <FormFieldSection title="metadata">
+                <InputField label="title" {...register("metadata.slug")} />
+                <InputField label="ogTitle" {...register("metadata.ogTitle")} />
+                <InputField
+                  label="ogDescription"
+                  {...register("metadata.ogDescription")}
+                />
+              </FormFieldSection>
+            </form>
           </Box>
         </Flex>
       </DesktopFirstBody>
