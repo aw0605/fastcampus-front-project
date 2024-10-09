@@ -5,21 +5,99 @@ import { DesktopFirstBody } from "@/src/components/Common/Layouts/DesktopFirstLa
 import { DesktopFirstNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/Nav";
 import { DesktopFirstSideNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/SideNav";
 import { Spacing } from "@/src/components/Common/Spacing";
+import { ViewSliceSchemaSnippet } from "@/src/utils/jsonEditor/ViewSchemaSnippet";
+import { ViewSchemaProps } from "@/src/utils/validation/schema/types";
+import { ViewSchema } from "@/src/utils/validation/schema/view";
 import { Button } from "@fastcampus/react-components-button";
 import { Box, Flex } from "@fastcampus/react-components-layout";
+import { useToast } from "@fastcampus/react-components-toast";
 import { vars } from "@fastcampus/themes";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getValidateFormErrorMessages } from "@/src/utils/validation/error";
+import { previewStorage } from "@/src/utils/storage";
+import { formatObjectToJson } from "@/src/utils/jsonEditor";
+import { useState } from "react";
+import ShortUniqueId from "short-unique-id";
+import { putViewDetail } from "@/src/apis/worker/putViewDetail";
 
 const EditorNewFormPage: React.FC = () => {
-  const { register, handleSubmit } = useForm();
+  const { randomUUID } = new ShortUniqueId({ length: 10 });
+  const [viewId] = useState(randomUUID());
 
-  const handleReset = () => {};
-  const handlePreview = handleSubmit((formData) => {
-    console.log("preview", formData);
+  const { toast } = useToast();
+
+  const { reset, register, handleSubmit } = useForm<ViewSchemaProps>({
+    defaultValues: ViewSliceSchemaSnippet.init,
+    resolver: zodResolver(ViewSchema),
   });
-  const handlePublish = handleSubmit((formData) => {
-    console.log("publish", formData);
-  });
+
+  const handleReset = () => {
+    reset();
+  };
+
+  const handlePreview = handleSubmit(
+    (formData) => {
+      previewStorage.set(viewId, formatObjectToJson(formData));
+
+      window.open(`/preview/${viewId}`, "_blank");
+    },
+    (formError) => {
+      const errors = getValidateFormErrorMessages(formError);
+      const firstError = errors[0];
+      if (firstError) {
+        return toast({
+          payload: {
+            message: `[${firstError.key}] ${firstError.message}`,
+          },
+        });
+      }
+    },
+  );
+
+  const handlePublish = handleSubmit(
+    async (formData) => {
+      const covvertedSlug = formData.slug.split(" ").join("-");
+
+      const currentFormData = {
+        ...formData,
+        slug: `${covvertedSlug}-${viewId}`,
+      };
+
+      try {
+        await putViewDetail({
+          viewId,
+          data: {
+            value: formatObjectToJson(currentFormData),
+            metadata: {
+              title: formData.slug,
+              createAt: new Date().toISOString(),
+            },
+          },
+        });
+
+        window.open(`/view/${currentFormData.slug}`, "_blank");
+      } catch (error) {
+        toast({
+          payload: {
+            // @ts-ignore
+            message: `[Fetch Error] ${error.message}`,
+          },
+        });
+      }
+    },
+    (formError) => {
+      const errors = getValidateFormErrorMessages(formError);
+      const firstError = errors[0];
+      if (firstError) {
+        return toast({
+          payload: {
+            message: `[${firstError.key}] ${firstError.message}`,
+          },
+        });
+      }
+    },
+  );
 
   return (
     <DesktopFirstLayout>
@@ -59,7 +137,7 @@ const EditorNewFormPage: React.FC = () => {
               </FormFieldSection>
               <Spacing />
               <FormFieldSection title="metadata">
-                <InputField label="title" {...register("metadata.slug")} />
+                <InputField label="title" {...register("metadata.title")} />
                 <InputField label="ogTitle" {...register("metadata.ogTitle")} />
                 <InputField
                   label="ogDescription"

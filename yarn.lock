@@ -2246,6 +2246,7 @@ __metadata:
     "@fastcampus/react-components-layout": "workspace:^"
     "@fastcampus/react-components-toast": "workspace:^"
     "@fastcampus/themes": "workspace:^"
+    "@hookform/resolvers": "npm:^3.3.2"
     "@monaco-editor/react": "npm:^4.6.0"
     "@types/node": "npm:20.8.0"
     "@types/react": "npm:^18.2.21"
@@ -2576,6 +2577,15 @@ __metadata:
     react: ^16 || ^17 || ^18
     react-dom: ^16 || ^17 || ^18
   checksum: 10c0/c0ece0db6ca15092439177a5322de50b60fa5fd90354ae0f999b3e56abab0065ed54fa7b4b69994ec1bdc23adc6ae9919d7dd57f97922d0b9bb6515d27e3a7e5
+  languageName: node
+  linkType: hard
+
+"@hookform/resolvers@npm:^3.3.2":
+  version: 3.9.0
+  resolution: "@hookform/resolvers@npm:3.9.0"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: 10c0/0e0e55f63abbd212cf14abbd39afad1f9b6105d6b25ce827fc651b624ed2be467ebe9b186026e0f032062db59ce2370b14e9583b436ae2d057738bdd6f04356c
   languageName: node
   linkType: hard
 
