@@ -12,7 +12,7 @@ import { DesktopFirstLayout } from "@/src/components/Common/Layouts/DesktopFirst
 import { DesktopFirstNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/Nav";
 import { DesktopFirstBody } from "@/src/components/Common/Layouts/DesktopFirstLayout/Body";
 import { DesktopFirstSideNav } from "@/src/components/Common/Layouts/DesktopFirstLayout/SideNav";
-import { JsonPresetList } from "@/src/components/Features/EditorNewPage";
+import { JsonPresetList } from "@/src/components/Features/EditorNewJsonPage/JsonPresetList";
 
 const EditorNewJsonPage: React.FC = () => {
   const { randomUUID } = new ShortUniqueId({ length: 10 });
