@@ -3,6 +3,7 @@ import { JsonEditor } from "@/src/components/Common/Editor/Json";
 import { formatObjectToJson } from "@/src/utils/jsonEditor";
 import { ViewSliceSchemaSnippet } from "@/src/utils/jsonEditor/ViewSchemaSnippet";
 import { Button } from "@fastcampus/react-components-button";
+import { Box } from "@fastcampus/react-components-layout";
 import ShortUniqueId from "short-unique-id";
 import { previewStorage } from "@/src/utils/storage";
 import { useViewSchemaValidation } from "@/src/hooks/useViewSchemaValidation";
@@ -115,11 +116,13 @@ const EditorNewJsonPage: React.FC = () => {
             validateViewSchema={validateViewSchema}
           />
         </DesktopFirstSideNav>
-        <JsonEditor
-          value={schema}
-          onChange={(value) => setSchema(value || "")}
-          onValidate={handleEditorValidation}
-        />
+        <Box className="w-full min-h-screen relative top-0 ml-[280px]">
+          <JsonEditor
+            value={schema}
+            onChange={(value) => setSchema(value || "")}
+            onValidate={handleEditorValidation}
+          />
+        </Box>
       </DesktopFirstBody>
     </DesktopFirstLayout>
   );

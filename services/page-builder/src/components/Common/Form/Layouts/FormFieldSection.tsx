@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import ShortUniqueId from "short-unique-id";
 import {
   Accordion,
@@ -8,7 +8,7 @@ import {
 } from "@fastcampus/react-components-accordion";
 
 type Props = {
-  title: string;
+  title: ReactNode;
   children: React.ReactNode;
 };
 

@@ -16,11 +16,27 @@ export const AccordionSliceSchema = z.object({
     sliceStyle: commonSliceStyleSchema
       .extend({
         titleTextColor: z.string().optional(),
-        titleTextSize: z.number().optional(),
-        titleTextWeight: z.number().optional(),
+        titleTextSize: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
+        titleTextWeight: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
         contentTextColor: z.string().optional(),
-        contentTextSize: z.number().optional(),
-        contentTextWeight: z.number().optional(),
+        contentTextSize: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
+        contentTextWeight: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
       })
       .optional(),
   }),
@@ -43,8 +59,16 @@ export const ImageSliderSliceSchema = z.object({
     images: z.array(ImageSchema),
     sliceStyle: commonSliceStyleSchema
       .extend({
-        imageItemWidth: z.number().optional(),
-        spaceBetween: z.number().optional(),
+        imageItemWidth: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
+        spaceBetween: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
       })
       .optional(),
   }),
@@ -58,7 +82,11 @@ export const ImageSliderSectionSliceSchema = z.object({
     sliceStyle: commonSliceStyleSchema
       .extend({
         textColor: z.string().optional(),
-        imageItemWidth: z.number().optional(),
+        imageItemWidth: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
       })
       .optional(),
   }),
@@ -69,7 +97,11 @@ export const SpacingSliceSchema = z.object({
   data: z.object({
     sliceStyle: z
       .object({
-        height: z.number().optional(),
+        height: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
         backgroundColor: z.string().optional(),
       })
       .optional(),
@@ -84,13 +116,25 @@ export const TextSliceSchema = z.object({
     sliceStyle: commonSliceStyleSchema
       .extend({
         textColor: z.string().optional(),
-        textSize: z.number().optional(),
-        textWeight: z.number().optional(),
+        textSize: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
+        textWeight: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
         textAlign: z
           .union([z.literal("left"), z.literal("center"), z.literal("right")])
           .optional(),
         highlightTextColor: z.string().optional(),
-        highlightTextWeight: z.number().optional(),
+        highlightTextWeight: z.preprocess(
+          (char) =>
+            typeof char === "string" ? parseInt(z.string().parse(char)) : char,
+          z.number().optional(),
+        ),
       })
       .optional(),
   }),
