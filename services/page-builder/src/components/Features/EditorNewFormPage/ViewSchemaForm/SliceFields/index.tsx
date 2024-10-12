@@ -3,6 +3,7 @@ import { Heading } from "@fastcampus/react-components-layout";
 import { vars } from "@fastcampus/themes";
 import { ViewSchemaFormSliceSpacingFeilds } from "./SpacingFields";
 import { useViewSchemaFormSliceFieldArray } from "@/src/hooks/useViewSchemaFormSliceFieldArray";
+import { ViewSchemaFormSliceTextFeilds } from "./TextFields";
 
 export const ViewSchemaFormSliceFields = () => {
   const { fields } = useViewSchemaFormSliceFieldArray();
@@ -19,6 +20,9 @@ export const ViewSchemaFormSliceFields = () => {
         switch (field.sliceName) {
           case "SpacingSlice": {
             return <ViewSchemaFormSliceSpacingFeilds fieldIndex={index} />;
+          }
+          case "TextSlice": {
+            return <ViewSchemaFormSliceTextFeilds fieldIndex={index} />;
           }
           default:
             <></>;

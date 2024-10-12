@@ -22,6 +22,17 @@ export const EditorNewFormSideNavBar = () => {
         });
       },
     },
+    {
+      name: "TextSlice",
+      onClick: () => {
+        append({
+          sliceName: "TextSlice",
+          data: {
+            text: "",
+          },
+        });
+      },
+    },
   ];
 
   return (
@@ -30,7 +41,7 @@ export const EditorNewFormSideNavBar = () => {
         <Fragment key={name}>
           <Button
             className="w-full"
-            style={{ borderRadius: 0 }}
+            style={{ width: "100%", borderRadius: 0 }}
             variant="ghost"
             onClick={onClick}
           >
