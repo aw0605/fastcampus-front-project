@@ -1,9 +1,10 @@
 import { Spacing } from "@/src/components/Common/Spacing";
 import { Heading } from "@fastcampus/react-components-layout";
 import { vars } from "@fastcampus/themes";
-import { ViewSchemaFormSliceSpacingFeilds } from "./SpacingFields";
 import { useViewSchemaFormSliceFieldArray } from "@/src/hooks/useViewSchemaFormSliceFieldArray";
-import { ViewSchemaFormSliceTextFeilds } from "./TextFields";
+import { ViewSchemaFormSliceSpacingFields } from "./SpacingFields";
+import { ViewSchemaFormSliceTextFields } from "./TextFields";
+import { ViewSchemaFormSliceImageFields } from "./ImageFields";
 
 export const ViewSchemaFormSliceFields = () => {
   const { fields } = useViewSchemaFormSliceFieldArray();
@@ -19,10 +20,22 @@ export const ViewSchemaFormSliceFields = () => {
       {fields.map((field, index) => {
         switch (field.sliceName) {
           case "SpacingSlice": {
-            return <ViewSchemaFormSliceSpacingFeilds fieldIndex={index} />;
+            return (
+              <ViewSchemaFormSliceSpacingFields
+                fieldIndex={index}
+                key={index}
+              />
+            );
           }
           case "TextSlice": {
-            return <ViewSchemaFormSliceTextFeilds fieldIndex={index} />;
+            return (
+              <ViewSchemaFormSliceTextFields fieldIndex={index} key={index} />
+            );
+          }
+          case "ImageSlice": {
+            return (
+              <ViewSchemaFormSliceImageFields fieldIndex={index} key={index} />
+            );
           }
           default:
             <></>;

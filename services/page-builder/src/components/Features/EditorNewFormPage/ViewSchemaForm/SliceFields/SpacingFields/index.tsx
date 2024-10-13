@@ -10,7 +10,7 @@ type Props = {
   fieldIndex: number;
 };
 
-export const ViewSchemaFormSliceSpacingFeilds = ({ fieldIndex }: Props) => {
+export const ViewSchemaFormSliceSpacingFields = ({ fieldIndex }: Props) => {
   const { register, setValue } = useFormContext();
   const { remove } = useViewSchemaFormSliceFieldArray();
 

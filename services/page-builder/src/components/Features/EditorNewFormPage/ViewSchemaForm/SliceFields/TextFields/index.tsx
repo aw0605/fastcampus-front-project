@@ -13,7 +13,7 @@ type Props = {
   fieldIndex: number;
 };
 
-export const ViewSchemaFormSliceTextFeilds = ({ fieldIndex }: Props) => {
+export const ViewSchemaFormSliceTextFields = ({ fieldIndex }: Props) => {
   const { register, setValue } = useFormContext();
   const { remove } = useViewSchemaFormSliceFieldArray();
 
