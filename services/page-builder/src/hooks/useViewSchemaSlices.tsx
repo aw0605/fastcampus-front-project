@@ -7,6 +7,7 @@ import { ImageSlice } from "../components/Features/view/slices/Image";
 import { SpacingSlice } from "../components/Features/view/slices/Spacing";
 import { ImageSliderSectionSlice } from "../components/Features/view/slices/ImageSliderSection";
 import { AccordionSlice } from "../components/Features/view/slices/Accordion";
+import { ImageSliderSlice } from "../components/Features/view/slices/ImageSlider";
 
 export const useViewSchemaSlices = (viewSchema: ViewSchemaProps) => {
   const slices = useMemo(() => {
@@ -32,6 +33,10 @@ export const useViewSchemaSlices = (viewSchema: ViewSchemaProps) => {
         }
         case "ImageSliderSectionSlice": {
           sliceList.push(<ImageSliderSectionSlice {...data} />);
+          break;
+        }
+        case "ImageSliderSlice": {
+          sliceList.push(<ImageSliderSlice {...data} />);
           break;
         }
         case "AccordionSlice": {
