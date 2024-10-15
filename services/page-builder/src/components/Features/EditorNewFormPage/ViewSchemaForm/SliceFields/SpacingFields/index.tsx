@@ -20,7 +20,7 @@ export const ViewSchemaFormSliceSpacingFields = ({ fieldIndex }: Props) => {
     <FormFieldSection
       title={
         <SliceFieldTitleNavBar
-          title={`${fieldIndex}. ImageSlider`}
+          title={`${fieldIndex}. Spacing`}
           fieldIndex={fieldIndex}
         />
       }

@@ -23,7 +23,7 @@ export const ViewSchemaFormSliceAccordionFields = ({ fieldIndex }: Props) => {
     <FormFieldSection
       title={
         <SliceFieldTitleNavBar
-          title={`${fieldIndex}. ImageSlider`}
+          title={`${fieldIndex}. Accordion`}
           fieldIndex={fieldIndex}
         />
       }

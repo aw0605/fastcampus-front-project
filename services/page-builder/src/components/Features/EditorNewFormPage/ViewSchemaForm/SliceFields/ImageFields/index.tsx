@@ -28,7 +28,7 @@ export const ViewSchemaFormSliceImageFields = ({ fieldIndex }: Props) => {
     <FormFieldSection
       title={
         <SliceFieldTitleNavBar
-          title={`${fieldIndex}. ImageSlider`}
+          title={`${fieldIndex}. Image`}
           fieldIndex={fieldIndex}
         />
       }
