@@ -1,13 +1,12 @@
 import { InputField } from "@/src/components/Common/Form/Field/InputField";
 import { SelectField } from "@/src/components/Common/Form/Field/SelectField";
 import { FormFieldSection } from "@/src/components/Common/Form/Layouts/FormFieldSection";
-import { useViewSchemaFormSliceFieldArray } from "@/src/hooks/useViewSchemaFormSliceFieldArray";
-import { Button } from "@fastcampus/react-components-button";
 import { Divider } from "@fastcampus/react-components-layout";
 import { vars } from "@fastcampus/themes";
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { ViewSchemaFormSliceTextHighlightFields } from "./TextHighlightField";
+import { SliceFieldTitleNavBar } from "../Common/SliceFieldTitleNavBar";
 
 type Props = {
   fieldIndex: number;
@@ -15,32 +14,18 @@ type Props = {
 
 export const ViewSchemaFormSliceTextFields = ({ fieldIndex }: Props) => {
   const { register, setValue } = useFormContext();
-  const { remove } = useViewSchemaFormSliceFieldArray();
 
   useEffect(() => {
     setValue(`slices.${fieldIndex}.sliceName`, "TextSlice");
   }, [fieldIndex, setValue]);
 
-  const handleRemove = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-
-    remove(fieldIndex);
-  };
-
   return (
     <FormFieldSection
       title={
-        <>
-          {fieldIndex}. Text{" "}
-          <Button
-            size="xs"
-            variant="outline"
-            color="red"
-            onClick={handleRemove}
-          >
-            삭제
-          </Button>
-        </>
+        <SliceFieldTitleNavBar
+          title={`${fieldIndex}. ImageSlider`}
+          fieldIndex={fieldIndex}
+        />
       }
     >
       <InputField
