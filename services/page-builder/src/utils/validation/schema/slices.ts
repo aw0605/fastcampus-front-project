@@ -12,7 +12,15 @@ export const AccordionSliceSchema = z.object({
   sliceName: z.literal("AccordionSlice"),
   data: z.object({
     accordionContents: z.array(AccordionContentSchema),
-    openedAccordion: z.boolean().optional(),
+    openedAccordion: z.preprocess(
+      (char) =>
+        z
+          .enum(["true", "false"])
+          .transform((char) => JSON.parse(char))
+          .catch(char)
+          .parse(char),
+      z.boolean().optional(),
+    ),
     sliceStyle: commonSliceStyleSchema
       .extend({
         titleTextColor: z.string().optional(),
