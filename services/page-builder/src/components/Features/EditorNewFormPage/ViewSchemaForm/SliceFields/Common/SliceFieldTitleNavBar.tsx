@@ -1,3 +1,4 @@
+import { useViewSchemaFormContext } from "@/src/hooks/useViewSchemaForm";
 import { useViewSchemaFormSliceFieldArray } from "@/src/hooks/useViewSchemaFormSliceFieldArray";
 import { Button } from "@fastcampus/react-components-button";
 import { Box, Flex } from "@fastcampus/react-components-layout";
@@ -15,6 +16,14 @@ export const SliceFieldTitleNavBar = ({
   appendRight,
 }: Props) => {
   const { remove } = useViewSchemaFormSliceFieldArray();
+  const { watch, setValue } = useViewSchemaFormContext();
+
+  const hideSlice = watch(`slices.${fieldIndex}.hideSlice`);
+
+  const handleHideToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setValue(`slices.${fieldIndex}.hideSlice`, !hideSlice);
+  };
 
   const handleRemove = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -27,7 +36,15 @@ export const SliceFieldTitleNavBar = ({
       {appendRight ? (
         <Box>{appendRight}</Box>
       ) : (
-        <Box>
+        <Flex gap={6}>
+          <Button
+            size="xs"
+            variant="outline"
+            color={hideSlice ? "gray" : "blue"}
+            onClick={handleHideToggle}
+          >
+            {hideSlice ? "미노출" : "노출"}
+          </Button>
           <Button
             size="xs"
             variant="outline"
@@ -36,7 +53,7 @@ export const SliceFieldTitleNavBar = ({
           >
             삭제
           </Button>
-        </Box>
+        </Flex>
       )}
     </Flex>
   );
