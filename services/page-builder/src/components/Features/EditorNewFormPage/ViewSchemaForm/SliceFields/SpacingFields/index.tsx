@@ -32,7 +32,7 @@ export const ViewSchemaFormSliceSpacingFields = ({ fieldIndex }: Props) => {
         {...register(`slices.${fieldIndex}.data.sliceStyle.height`)}
       />
       <InputField
-        label="height"
+        label="backgroundColor"
         type="color"
         defaultValue={vars.colors.$static.light.gray[300]}
         {...register(`slices.${fieldIndex}.data.sliceStyle.backgroundColor`)}
