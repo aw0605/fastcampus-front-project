@@ -23,7 +23,13 @@ export const getStaticProps: GetStaticProps<{
   const viewId = slicedSlug[slicedSlug.length - 1];
 
   try {
-    const { value } = await getViewDetail({ viewId });
+    const { value, metadata } = await getViewDetail({ viewId });
+
+    if (metadata.isDraft) {
+      return {
+        notFound: true,
+      };
+    }
 
     return {
       props: {
