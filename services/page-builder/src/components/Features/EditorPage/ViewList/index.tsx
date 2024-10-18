@@ -42,6 +42,7 @@ export const ViewList = ({ viewList }: Props) => {
         metadata: {
           ...metadata,
           isDraft: !isDraft,
+          updatedAt: new Date().toISOString(),
         },
       },
     });
@@ -95,7 +96,9 @@ export const ViewList = ({ viewList }: Props) => {
                   fontSize="xs"
                   style={{ color: vars.colors.$static.light.gray[500] }}
                 >
-                  {formatDate(metadata.createAt)}
+                  {metadata.updatedAt &&
+                    `수정일자: ${formatDate(metadata.updatedAt)} | `}
+                  {`생성일자: ${formatDate(metadata.createAt)}`}
                 </Text>
               </div>
               <div className="min-w-fit flex items-center gap-4">

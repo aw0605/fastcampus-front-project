@@ -56,6 +56,7 @@ export const EditorNewFormGlobalNavBar = ({ viewId }: Props) => {
             metadata: {
               title: formData.slug,
               isDraft: false,
+              updatedAt: new Date().toISOString(),
               createAt: new Date().toISOString(),
             },
           },
