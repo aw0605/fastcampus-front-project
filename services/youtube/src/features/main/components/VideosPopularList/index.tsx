@@ -1,14 +1,27 @@
-import { getVideosPopularList } from "@/src/features/main/api/getVideoPopularList";
-import { vars } from "@fastcampus/themes";
+"use client";
 
-export const VideosPopularList = async () => {
-  const data = await getVideosPopularList({});
+import { useEffect } from "react";
+import { vars } from "@fastcampus/themes";
+import { useGetVideosPopularList } from "@/src/features/main/hooks/useGetVideosPopularList";
+
+export const VideosPopularList = () => {
+  const { data, fetchNextPage, isFetchingNextPage } = useGetVideosPopularList(
+    {},
+  );
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetchNextPage();
+    }, 2000);
+  }, []);
 
   return (
     <section style={{ color: vars.colors.$scale.gray[900] }}>
       <h2>목록</h2>
       <br />
-      <p>{data.lists?.[0].title}</p>
+      <p>fetching: {isFetchingNextPage ? "true" : "false"}</p>
+      <br />
+      <p>{data.pages?.[0].lists?.[0].title}</p>
     </section>
   );
 };
