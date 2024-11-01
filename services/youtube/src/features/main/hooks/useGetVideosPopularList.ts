@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query";
 import {
   getVideosPopularList,
-  getVideosPopularListPath,
+  getVideosPopularListUrl,
   GetVideosPopularListRequestParams,
   GetVideosPopularListResponse,
 } from "@/src/features/main/api/getVideoPopularList";
@@ -22,7 +22,7 @@ export const useGetVideosPopularList = ({
   Error
 > => {
   return useSuspenseInfiniteQuery({
-    queryKey: ["videos", getVideosPopularListPath, maxResults, initPageToken],
+    queryKey: ["videos", getVideosPopularListUrl, maxResults, initPageToken],
     queryFn: async ({ pageParam = initPageToken }) => {
       return await getVideosPopularList({ maxResults, pageToken: pageParam });
     },
