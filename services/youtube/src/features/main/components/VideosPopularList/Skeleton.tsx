@@ -6,5 +6,9 @@ export const VideosPopularListSkeleton = () => {
     <VideosPopularListItemSkeleton key={i} />
   ));
 
-  return <section className={s.wrapper}>{items}</section>;
+  return (
+    <section data-testid="VideosPopularListSkeleton" className={s.wrapper}>
+      {items}
+    </section>
+  );
 };
