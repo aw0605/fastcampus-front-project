@@ -1,5 +1,7 @@
-import { VideoThumbnail } from "@/src/shared/api/youtube/types/item";
-import { ListPageApiInfo } from "@/src/shared/api/youtube/types/list";
+import {
+  ListPageApiInfo,
+  VideoListItem,
+} from "@/src/shared/api/youtube/types/list";
 import { youtube_v3 } from "googleapis";
 import { API_BASE_URL } from "@/src/shared/api/constants";
 import queryString from "query-string";
@@ -10,17 +12,9 @@ export type GetVideosPopularListRequestParams = Pick<
 >;
 
 export type PopularListItem = {
-  videoId: string;
-  title: string;
-  description: string;
-  channelId: string;
-  channelTitle: string;
-  thumbnail: VideoThumbnail;
-  publishedAt: string;
-  publishedAtDisplayText: string;
   viewCount: number;
   viewCountDisplayText: string;
-};
+} & VideoListItem;
 
 export type GetVideosPopularListResponse = {
   lists: PopularListItem[];
