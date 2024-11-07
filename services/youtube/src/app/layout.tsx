@@ -20,7 +20,7 @@ export default async function RootLayout({
       <body>
         <ThemeScript />
         <MSWProvider>
-          <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
         </MSWProvider>
       </body>
     </html>

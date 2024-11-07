@@ -16,3 +16,7 @@ export type VideoListItem = {
   publishedAt: string;
   publishedAtDisplayText: string;
 };
+
+export type ListResponse<T> = {
+  lists: T[];
+} & ListPageApiInfo;
