@@ -5,16 +5,18 @@ import {
 import { youtube_v3 } from "googleapis";
 import { API_BASE_URL } from "@/src/shared/api/constants";
 import queryString from "query-string";
+import { VideoStatistics } from "@/src/shared/api/youtube/types/item";
 
 export type GetVideosPopularListRequestParams = Pick<
   youtube_v3.Params$Resource$Videos$List,
   "maxResults" | "pageToken"
 >;
 
-export type PopularListItem = {
-  viewCount: number;
-  viewCountDisplayText: string;
-} & VideoListItem;
+export type PopularListItem = Pick<
+  VideoStatistics,
+  "viewCount" | "viewCountDisplayText"
+> &
+  VideoListItem;
 
 export type GetVideosPopularListResponse = ListResponse<PopularListItem>;
 
