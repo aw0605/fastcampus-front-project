@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "@/src/shared/api/constants";
 import {
   Channel,
   ChannelStatistics,
@@ -16,4 +17,15 @@ export type VideoDetail = VideoListItem &
 
 export type GetVideosDetailResponse = {
   detail: VideoDetail;
+};
+
+export const getVideosDetailURL = `${API_BASE_URL}/api/videos/detail/:videoId`;
+
+export const getVideosDetail = async (
+  params: GetVideosDetailRequestParams,
+): Promise<GetVideosDetailResponse> => {
+  const url = getVideosDetailURL.replace(":videoId", params.videoId);
+  const response = await fetch(url);
+
+  return await response.json();
 };
