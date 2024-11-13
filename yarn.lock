@@ -3402,12 +3402,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bundled-es-modules/cookie@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@bundled-es-modules/cookie@npm:2.0.0"
+"@bundled-es-modules/cookie@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@bundled-es-modules/cookie@npm:2.0.1"
   dependencies:
-    cookie: "npm:^0.5.0"
-  checksum: 10c0/0655dd331b35d7b5b6dd2301c3bcfb7233018c0e3235a40ced1d53f00463ab92dc01f0091f153812867bc0ef0f8e0a157a30acb16e8d7ef149702bf8db9fe7a6
+    cookie: "npm:^0.7.2"
+  checksum: 10c0/dfac5e36127e827c5557b8577f17a8aa94c057baff6d38555917927b99da0ecf0b1357e7fedadc8853ecdbd4a8a7fa1f5e64111b2a656612f4a36376f5bdbe8d
   languageName: node
   linkType: hard
 
@@ -4660,9 +4660,10 @@ __metadata:
     "@vanilla-extract/recipes": "npm:^0.5.0"
     "@vanilla-extract/vite-plugin": "npm:^3.9.2"
     "@vitejs/plugin-react": "npm:^4.2.0"
+    clsx: "npm:^2.0.0"
     googleapis: "npm:^128.0.0"
     happy-dom: "npm:^12.10.3"
-    msw: "npm:^2.0.9"
+    msw: "npm:^2.4.9"
     next: "npm:14.2.13"
     next-router-mock: "npm:^0.9.10"
     query-string: "npm:^8.1.0"
@@ -10981,10 +10982,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "cookie@npm:0.5.0"
-  checksum: 10c0/c01ca3ef8d7b8187bae434434582288681273b5a9ed27521d4d7f9f7928fe0c920df0decd9f9d3bbd2d14ac432b8c8cf42b98b3bdd5bfe0e6edddeebebe8b61d
+"cookie@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "cookie@npm:0.7.2"
+  checksum: 10c0/9596e8ccdbf1a3a88ae02cf5ee80c1c50959423e1022e4e60b91dd87c622af1da309253d8abdb258fb5e3eacb4f08e579dc58b4897b8087574eee0fd35dfa5d2
   languageName: node
   linkType: hard
 
@@ -17111,11 +17112,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^2.0.9":
-  version: 2.6.0
-  resolution: "msw@npm:2.6.0"
+"msw@npm:^2.4.9":
+  version: 2.6.4
+  resolution: "msw@npm:2.6.4"
   dependencies:
-    "@bundled-es-modules/cookie": "npm:^2.0.0"
+    "@bundled-es-modules/cookie": "npm:^2.0.1"
     "@bundled-es-modules/statuses": "npm:^1.0.1"
     "@bundled-es-modules/tough-cookie": "npm:^0.1.6"
     "@inquirer/confirm": "npm:^5.0.0"
@@ -17140,7 +17141,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10c0/157c92d8faf1871acc1f4e965916ffcc8dd51aa7b1317b58749d8ef427e392db7549dc4ae3aac6b0295a6305f53a985c743272ec4445556b07439fefe5d77529
+  checksum: 10c0/1a1faa940cbac754cdf4686876c172339f6af8736ec758ac6ed3897bfa3e2408685903f9fbfa61431ac8a81ec5d9377a280934fafc5403a0b0129a17d9e24cc0
   languageName: node
   linkType: hard
 
