@@ -53,6 +53,7 @@ const mappingResponse = (
   const videoParsedViewCount = parseInt(videoData.statistics?.viewCount ?? "0");
   const videoLikeCount = parseInt(videoData.statistics?.likeCount ?? "0");
   const videoDislikeCount = parseInt(videoData.statistics?.dislikeCount ?? "0");
+  const videoCommentCount = parseInt(videoData.statistics?.commentCount ?? "0");
   const channelViewCount = parseInt(channelData.statistics?.viewCount ?? "0");
   const channelSubscriberCount = parseInt(
     channelData.statistics?.subscriberCount ?? "0",
@@ -83,6 +84,11 @@ const mappingResponse = (
       dislikeCount: videoDislikeCount,
       dislikeCountDisplayText: formatNumberToKoreanText(
         videoDislikeCount,
+        true,
+      ),
+      commentCount: videoCommentCount,
+      commentCountDisplayText: formatNumberToKoreanText(
+        videoCommentCount,
         true,
       ),
       channelInfo: {
