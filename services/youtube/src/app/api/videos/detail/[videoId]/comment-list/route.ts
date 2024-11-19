@@ -1,8 +1,8 @@
+import { VideoDetailPageParams } from "@/src/features/videos/detail/types";
 import {
   GetVideosDetailCommentListRequestParams,
   GetVideosDetailCommentListResponse,
-} from "@/src/features/videos/detail/api/getVideosDetailCommentList";
-import { VideoDetailPageParams } from "@/src/features/videos/detail/types";
+} from "@/src/shared/api/youtube/client/videoDetail/getVideosDetailCommentList";
 import { youtubeServerInstance } from "@/src/shared/api/youtube/server/instance";
 import { formatKoreanTextCompareDatesFromNow } from "@/src/shared/utils/format/date";
 import { formatNumberToKoreanText } from "@/src/shared/utils/format/number";
