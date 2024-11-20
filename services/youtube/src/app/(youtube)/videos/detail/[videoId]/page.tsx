@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { VideoDetailPageParams } from "@/src/features/videos/detail/types";
 import { VideoDetail } from "@/src/features/videos/detail/components/VideoDetail";
-import { VideoDetailCommentList } from "@/src/features/videos/detail/components/VideoDetailCommentList";
+import { VideoDetailCommentList } from "@/src/shared/components/VideoDetailCommentList";
 import * as s from "./style.css";
 
 export default function VideoDetailPage({ params }: VideoDetailPageParams) {
