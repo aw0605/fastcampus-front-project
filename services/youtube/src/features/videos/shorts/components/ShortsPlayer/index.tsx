@@ -1,13 +1,14 @@
-import { useRef, useState } from "react";
-
-import { VideoDetailPageParams } from "../../../detail/types";
-import * as s from "./style.css";
+import { useEffect, useRef, useState } from "react";
 import YouTube, { YouTubePlayer } from "react-youtube";
+import { VideoDetailPageParams } from "../../../detail/types";
 import { useGetVideosDetail } from "../../../detail/hooks/useGetVideoDetail";
+import * as s from "./style.css";
 
-type Props = VideoDetailPageParams["params"];
+export type ShortsPlayerConfig = { autoPlay?: boolean };
 
-export const ShortsPlayer = ({ videoId: initVideoId }: Props) => {
+type Props = VideoDetailPageParams["params"] & ShortsPlayerConfig;
+
+export const ShortsPlayer = ({ videoId: initVideoId, autoPlay }: Props) => {
   const youtubePlayerRef = useRef<YouTubePlayer | null>(null);
   const {
     data: { detail: videoDetail },
@@ -19,7 +20,7 @@ export const ShortsPlayer = ({ videoId: initVideoId }: Props) => {
     width: "453px",
     height: "810px",
     playerVars: {
-      autoplay: 1,
+      autoplay: autoPlay ? 1 : 0,
       mute: 1,
       rel: 0,
       controls: 0,
@@ -29,10 +30,11 @@ export const ShortsPlayer = ({ videoId: initVideoId }: Props) => {
     },
   };
 
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(autoPlay);
 
   const togglePlay = () => {
     if (!youtubePlayerRef.current) return;
+
     if (isPlaying) {
       youtubePlayerRef.current?.pauseVideo();
       setIsPlaying(false);
@@ -41,6 +43,13 @@ export const ShortsPlayer = ({ videoId: initVideoId }: Props) => {
       setIsPlaying(true);
     }
   };
+
+  useEffect(() => {
+    if (!youtubePlayerRef.current) return;
+
+    if (autoPlay) youtubePlayerRef.current?.playVideo();
+    else youtubePlayerRef.current?.pauseVideo();
+  }, [autoPlay]);
 
   return (
     <div className={s.wrapper}>
